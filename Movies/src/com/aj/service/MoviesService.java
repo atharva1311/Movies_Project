@@ -94,7 +94,7 @@ public class MoviesService {
 		List<String> movies = new ArrayList<String>();
 		for (String movie : allMoviesofAllYearsService()) {
 			for (String name : getMovieCast(movie)) {
-				if (actor.equals(name)) {
+				if (actor.equalsIgnoreCase(name)) {
 					movies.add(movie);
 				}
 			}
@@ -111,7 +111,7 @@ public class MoviesService {
 		for (String movie : allMoviesofAllYearsService()) {
 
 			for (MovieCast mc : allMoviesofAllYearswithCast().get(movie)) {
-				if (mc.getName().equals(name)) {
+				if (mc.getName().equalsIgnoreCase(name)) {
 					ab = mc;
 					flag = true;
 					break;

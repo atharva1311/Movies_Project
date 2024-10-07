@@ -22,8 +22,8 @@ public class MoviesClient {
 		System.out.println("3. Get cast for movie.");
 		System.out.println("4. View information of actor.");
 		System.out.println("5. View all movies of specific actor.");
-		System.out.println("6. View of all movies for a specific year.");
-		System.out.println("7. View of all movies in the database.");
+		System.out.println("6. View all movies for a specific year.");
+		System.out.println("7. View all movies in the database.");
 		System.out.println("8. Exit");
 		System.out.println("Enter your choice: ");
 		choice=sc.nextInt()	;
@@ -40,12 +40,26 @@ public class MoviesClient {
 			break;
 		case 3:
 			List<String> l1=mc.getMovieCastController(sc);
-			System.out.println(l1);
-			System.out.println();
+//			System.out.println(l1);
+			System.out.println("----------------------------");
+	        System.out.printf("| %-25s |\n", "Name of Actors");
+	        System.out.println("----------------------------");
+			
+			for(String name:l1)
+			{
+				System.out.printf("| %-25s |\n", name);
+			}
+			
+			System.out.println("----------------------------");
 			break;
 		case 4:
 			MovieCast ab = mc.infoAboutCastController(sc);
-			System.out.println(ab);
+//			System.out.println(ab);
+			System.out.println("-----------------------------------------------");
+	        System.out.printf("| %-25s | %-4s | %-8s |\n", "Name", "Age", "Gender");
+	        System.out.println("-----------------------------------------------");
+	        System.out.printf("| %-25s | %-4d | %-8s |\n", ab.getName(), ab.getAge(), ab.getGender());
+	        System.out.println("-----------------------------------------------");
 			System.out.println();
 			break;
 		case 5:
@@ -55,12 +69,28 @@ public class MoviesClient {
 			break;
 		case 6:
 			Set<String> s1=mc.getMoviesofyearController(sc);
-			System.out.println(s1);
+//			System.out.println(s1);
+			System.out.println(" --------------------------------");
+	        System.out.printf("| %-30s |\n", "Name of Movies");
+	        System.out.println(" --------------------------------");
+	        for(String name:s1)
+			{
+				System.out.printf("| %-30s |\n", name);
+			}
+	        System.out.println(" --------------------------------");
 			System.out.println();
 			break;
 		case 7:
 			Set<String> s2=mc.allMoviesofAllYearsController();
-			System.out.println(s2);
+//			System.out.println(s2);
+			System.out.println(" --------------------------------");
+	        System.out.printf("| %-30s |\n", "Name of Movies");
+	        System.out.println(" --------------------------------");
+	        for(String name:s2)
+			{
+				System.out.printf("| %-30s |\n", name);
+			}
+	        System.out.println(" --------------------------------");
 			System.out.println();
 			break;
 		case 8:
