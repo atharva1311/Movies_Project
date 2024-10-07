@@ -77,7 +77,7 @@ public class MoviesClient {
 			{
 				System.out.printf("| %-30s |\n", name);
 			}
-	        System.out.println(" --------------------------------");
+	        System.out.println(" ---------------------------------");
 			System.out.println();
 			break;
 		case 7:
