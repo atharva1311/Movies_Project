@@ -39,29 +39,31 @@ public class MoviesClient {
 			System.out.println();
 			break;
 		case 3:
-			List<String> l1=mc.getMovieCastController(sc);
-//			System.out.println(l1);
-			System.out.println("----------------------------");
-	        System.out.printf("| %-25s |\n", "Name of Actors");
-	        System.out.println("----------------------------");
-			
-			for(String name:l1)
-			{
-				System.out.printf("| %-25s |\n", name);
-			}
-			
-			System.out.println("----------------------------");
-			break;
+			List<String> l1 = mc.getMovieCastController(sc);
+		    if (l1 != null && !l1.isEmpty()) {
+		        System.out.println("----------------------------");
+		        System.out.printf("| %-25s |\n", "Name of Actors");
+		        System.out.println("----------------------------");
+		        for (String name : l1) {
+		            System.out.printf("| %-25s |\n", name);
+		        }
+		        System.out.println("----------------------------");
+		    } else {
+		        System.out.println("No cast found for this movie.");
+		    }
+		    break;
 		case 4:
 			MovieCast ab = mc.infoAboutCastController(sc);
-//			System.out.println(ab);
-			System.out.println("-----------------------------------------------");
-	        System.out.printf("| %-25s | %-4s | %-8s |\n", "Name", "Age", "Gender");
-	        System.out.println("-----------------------------------------------");
-	        System.out.printf("| %-25s | %-4d | %-8s |\n", ab.getName(), ab.getAge(), ab.getGender());
-	        System.out.println("-----------------------------------------------");
-			System.out.println();
-			break;
+		    if (ab != null) {
+		        System.out.println("-----------------------------------------------");
+		        System.out.printf("| %-25s | %-4s | %-8s |\n", "Name", "Age", "Gender");
+		        System.out.println("-----------------------------------------------");
+		        System.out.printf("| %-25s | %-4d | %-8s |\n", ab.getName(), ab.getAge(), ab.getGender());
+		        System.out.println("-----------------------------------------------");
+		    } else {
+		        System.out.println("Actor not found.");
+		    }
+		    break;
 		case 5:
 			List<String> l2=mc.totalmoviesofcastController(sc);
 			System.out.println(l2);
@@ -94,20 +96,23 @@ public class MoviesClient {
 			System.out.println();
 			break;
 		case 8:
-			System.out.println("Thank You for visiting our site..!");
-			System.out.println();
-			return;
+            System.out.println("Thank You for visiting our site..!");
+            break;
+//		case 8:
+//			System.out.println("Thank You for visiting our site..!");
+//			System.out.println();
+//			return;
 		default:
 		System.out.println("Invalid choice. Try again..!");
 			
 		}
 		
-		if(choice == 8)
-		{
-			break;
-		}
+//		if (choice == 8) {
+//		    System.out.println("Thank You for visiting our site..!");
+//		    break;
+//		}
 		
 	}
-	while(true);
+	while(choice != 8);
 }
 }
